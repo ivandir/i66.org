@@ -335,4 +335,6 @@ Commands are downloaded over plain HTTP and executed without validation. Ensure 
 
 ## License
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ivandir/i66.org/blob/main/LICENSE)
+
 MIT License © 2025 i66.org
