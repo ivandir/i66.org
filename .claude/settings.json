@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ls:*)",
-      "Bash(git -C c:/Github/i66.org remote get-url origin)"
-    ]
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git -C c:/Github/i66.org remote -v)"
-    ]
-  }
-}
