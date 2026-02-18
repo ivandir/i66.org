@@ -1,6 +1,6 @@
 # i66.org
 
-A self-hosted library of plain-text shell commands served from S3, consumed by a minimal Go CLI.
+**[i66.org](http://i66.org)** — A self-hosted library of plain-text shell commands served from S3, consumed by a minimal Go CLI.
 
 ---
 
