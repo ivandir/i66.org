@@ -10,3 +10,6 @@ i66.exe
 .vscode/
 *.swp
 *.swo
+
+# Claude Code
+.claude/
