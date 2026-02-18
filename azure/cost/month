@@ -1,0 +1,9 @@
+START=$(date +%Y-%m-01)
+END=$(date +%Y-%m-%d)
+echo "Cost from $START to $END"
+az consumption usage list \
+  --start-date $START \
+  --end-date $END \
+  --query 'sort_by([*],&pretaxCost)[-20:].[product,pretaxCost,currency]' \
+  --output table 2>/dev/null \
+  || echo "Note: requires Billing Reader role. Use Azure Cost Management portal for full details."

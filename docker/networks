@@ -1,0 +1,7 @@
+docker network ls
+echo ""
+echo "=== Non-default network details ==="
+docker network ls --format '{{.Name}}' | grep -v -E '^(bridge|host|none)$' | while read net; do
+  echo "--- $net ---"
+  docker network inspect "$net" --format 'Driver: {{.Driver}}  Subnet: {{range .IPAM.Config}}{{.Subnet}}{{end}}'
+done

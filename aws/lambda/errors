@@ -1,0 +1,27 @@
+echo "Lambda errors and throttles — last 1 hour:"
+echo ""
+aws cloudwatch get-metric-data \
+  --metric-data-queries '[
+    {
+      "Id": "errors",
+      "MetricStat": {
+        "Metric": {"Namespace": "AWS/Lambda", "MetricName": "Errors"},
+        "Period": 3600,
+        "Stat": "Sum"
+      },
+      "ReturnData": true
+    },
+    {
+      "Id": "throttles",
+      "MetricStat": {
+        "Metric": {"Namespace": "AWS/Lambda", "MetricName": "Throttles"},
+        "Period": 3600,
+        "Stat": "Sum"
+      },
+      "ReturnData": true
+    }
+  ]' \
+  --start-time $(date -u -d '-1 hour' +%Y-%m-%dT%H:%M:%SZ) \
+  --end-time $(date -u +%Y-%m-%dT%H:%M:%SZ) \
+  --query 'MetricDataResults[*].[Label,Values[0]]' \
+  --output table

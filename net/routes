@@ -1,0 +1,5 @@
+echo "=== Routing table ==="
+ip route show
+echo ""
+echo "=== Default gateway ==="
+ip route | grep default

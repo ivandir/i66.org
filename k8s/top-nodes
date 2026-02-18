@@ -1,0 +1,2 @@
+kubectl top nodes 2>/dev/null \
+  || echo "metrics-server not installed. Install: kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml"

@@ -1,0 +1,8 @@
+echo "=== /etc/crontab ==="
+cat /etc/crontab 2>/dev/null
+echo ""
+echo "=== /etc/cron.d/ ==="
+ls -la /etc/cron.d/ 2>/dev/null && cat /etc/cron.d/* 2>/dev/null
+echo ""
+echo "=== Root crontab ==="
+crontab -l 2>/dev/null || echo "(no root crontab)"

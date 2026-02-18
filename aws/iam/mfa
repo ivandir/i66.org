@@ -1,0 +1,14 @@
+echo "=== Users WITHOUT MFA enabled ==="
+echo ""
+aws iam list-users --query 'Users[*].UserName' --output text | tr '\t' '\n' | while read user; do
+  count=$(aws iam list-mfa-devices --user-name "$user" --query 'length(MFADevices)' --output text 2>/dev/null)
+  if [ "$count" = "0" ]; then
+    echo "  NO MFA: $user"
+  fi
+done
+echo ""
+echo "=== Virtual MFA devices assigned ==="
+aws iam list-virtual-mfa-devices \
+  --assignment-status Assigned \
+  --query 'VirtualMFADevices[*].[SerialNumber,User.UserName]' \
+  --output table

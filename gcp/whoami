@@ -1,0 +1,5 @@
+echo "=== Active config ==="
+gcloud config list
+echo ""
+echo "=== Auth accounts ==="
+gcloud auth list

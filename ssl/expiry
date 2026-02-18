@@ -1,0 +1,13 @@
+if [ -z "$DOMAIN" ]; then
+  echo "Usage: DOMAIN=example.com i66 ssl/expiry"
+  exit 1
+fi
+EXPIRY=$(echo | openssl s_client -connect $DOMAIN:443 -servername $DOMAIN 2>/dev/null \
+  | openssl x509 -noout -enddate | cut -d= -f2)
+echo "Domain  : $DOMAIN"
+echo "Expires : $EXPIRY"
+EXPIRY_EPOCH=$(date -d "$EXPIRY" +%s 2>/dev/null || date -j -f "%b %d %T %Y %Z" "$EXPIRY" +%s 2>/dev/null)
+NOW_EPOCH=$(date +%s)
+DAYS=$(( ($EXPIRY_EPOCH - $NOW_EPOCH) / 86400 ))
+echo "Days remaining: $DAYS"
+if [ "$DAYS" -lt 14 ]; then echo "WARNING: certificate expires soon!"; fi

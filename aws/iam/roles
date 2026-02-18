@@ -1,0 +1,3 @@
+aws iam list-roles \
+  --query 'sort_by(Roles,&CreateDate)[*].[RoleName,CreateDate,Description]' \
+  --output table

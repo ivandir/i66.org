@@ -1,0 +1,1 @@
+gsutil ls -L | grep -E 'gs://|Location constraint|Storage class|Versioning enabled'

@@ -1,0 +1,3 @@
+uptime
+echo ""
+cat /proc/loadavg

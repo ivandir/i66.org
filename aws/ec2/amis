@@ -1,0 +1,4 @@
+aws ec2 describe-images \
+  --owners self \
+  --query 'sort_by(Images,&CreationDate)[-20:].[ImageId,Name,CreationDate,State,Architecture]' \
+  --output table

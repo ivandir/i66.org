@@ -1,0 +1,12 @@
+aws ecs list-clusters --query 'clusterArns' --output text | tr '\t' '\n' | while read cluster; do
+  name=$(basename "$cluster")
+  task_arns=$(aws ecs list-tasks --cluster "$cluster" --desired-status RUNNING --query 'taskArns' --output text 2>/dev/null)
+  count=$(echo "$task_arns" | tr '\t' '\n' | grep -c 'arn' 2>/dev/null || echo 0)
+  echo "=== $name ($count running tasks) ==="
+  if [ -n "$task_arns" ] && [ "$task_arns" != "None" ]; then
+    aws ecs describe-tasks --cluster "$cluster" --tasks $task_arns \
+      --query 'tasks[*].[taskDefinitionArn,lastStatus,cpu,memory,startedAt]' \
+      --output table 2>/dev/null
+  fi
+  echo ""
+done

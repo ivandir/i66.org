@@ -1,0 +1,7 @@
+echo "Listing access keys per IAM user..."
+echo ""
+aws iam list-users --query 'Users[*].UserName' --output text | tr '\t' '\n' | while read user; do
+  aws iam list-access-keys --user-name "$user" \
+    --query "AccessKeyMetadata[*].['$user', AccessKeyId, Status, CreateDate]" \
+    --output table
+done

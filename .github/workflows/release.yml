@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        id: tag
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          default_bump: patch
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Build binaries
+        env:
+          VERSION: ${{ steps.tag.outputs.new_tag }}
+        run: |
+          mkdir -p dist/linux-amd64 dist/linux-arm dist/linux-arm64 dist/darwin-amd64 dist/darwin-arm64 dist/windows-amd64
+          GOOS=linux   GOARCH=amd64         go build -ldflags "-X main.version=$VERSION" -o dist/linux-amd64/i66        i66.org.go
+          GOOS=linux   GOARCH=arm   GOARM=7 go build -ldflags "-X main.version=$VERSION" -o dist/linux-arm/i66          i66.org.go
+          GOOS=linux   GOARCH=arm64         go build -ldflags "-X main.version=$VERSION" -o dist/linux-arm64/i66        i66.org.go
+          GOOS=darwin  GOARCH=amd64         go build -ldflags "-X main.version=$VERSION" -o dist/darwin-amd64/i66       i66.org.go
+          GOOS=darwin  GOARCH=arm64         go build -ldflags "-X main.version=$VERSION" -o dist/darwin-arm64/i66       i66.org.go
+          GOOS=windows GOARCH=amd64         go build -ldflags "-X main.version=$VERSION" -o dist/windows-amd64/i66.exe  i66.org.go
+
+      - name: Package binaries
+        run: |
+          mkdir -p release
+          tar -czf release/i66-linux-amd64.tar.gz   -C dist/linux-amd64   i66
+          tar -czf release/i66-linux-arm.tar.gz     -C dist/linux-arm     i66
+          tar -czf release/i66-linux-arm64.tar.gz   -C dist/linux-arm64   i66
+          tar -czf release/i66-darwin-amd64.tar.gz  -C dist/darwin-amd64  i66
+          tar -czf release/i66-darwin-arm64.tar.gz  -C dist/darwin-arm64  i66
+          zip -j   release/i66-windows-amd64.zip        dist/windows-amd64/i66.exe
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.new_tag }}
+          name: ${{ steps.tag.outputs.new_tag }}
+          body: ${{ steps.tag.outputs.changelog }}
+          files: release/*

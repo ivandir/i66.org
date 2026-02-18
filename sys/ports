@@ -1,0 +1,5 @@
+echo "=== Listening TCP ports ==="
+ss -tlnp
+echo ""
+echo "=== Listening UDP ports ==="
+ss -ulnp

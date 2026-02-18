@@ -1,0 +1,6 @@
+if [ -z "$DOMAIN" ]; then echo "Usage: DOMAIN=example.com i66 net/dig/a"; exit 1; fi
+echo "=== A records for $DOMAIN ==="
+dig +short A $DOMAIN
+echo ""
+echo "=== Full answer section ==="
+dig A $DOMAIN | grep -A20 'ANSWER SECTION'

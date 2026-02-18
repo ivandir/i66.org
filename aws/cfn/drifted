@@ -1,0 +1,3 @@
+aws cloudformation describe-stacks \
+  --query 'Stacks[?DriftInformation.StackDriftStatus==`DRIFTED`].[StackName,StackStatus,DriftInformation.StackDriftStatus,LastUpdatedTime]' \
+  --output table

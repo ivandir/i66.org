@@ -1,0 +1,3 @@
+aws route53 list-hosted-zones \
+  --query 'HostedZones[*].[Name,Id,Config.PrivateZone,ResourceRecordSetCount]' \
+  --output table

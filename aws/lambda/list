@@ -1,0 +1,3 @@
+aws lambda list-functions \
+  --query 'sort_by(Functions,&LastModified)[-50:].[FunctionName,Runtime,MemorySize,Timeout,CodeSize,LastModified]' \
+  --output table

@@ -1,0 +1,6 @@
+echo "=== Public IP ==="
+curl -s https://ifconfig.me
+echo ""
+echo ""
+echo "=== Local interfaces ==="
+ip -brief addr show

@@ -1,0 +1,1 @@
+kubectl get ingress -A 2>/dev/null || kubectl get ing -A 2>/dev/null || echo "No ingress resources found"

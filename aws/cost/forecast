@@ -1,0 +1,15 @@
+START=$(date +%Y-%m-%d)
+END=$(python3 -c "
+from datetime import date
+import calendar
+d = date.today()
+last_day = calendar.monthrange(d.year, d.month)[1]
+print(d.replace(day=last_day).strftime('%Y-%m-%d'))
+")
+echo "Forecast from $START to $END"
+aws ce get-cost-forecast \
+  --time-period Start=$START,End=$END \
+  --granularity MONTHLY \
+  --metric BLENDED_COST \
+  --query '[Total.Amount, Total.Unit]' \
+  --output table

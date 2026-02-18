@@ -1,0 +1,2 @@
+kubectl top pods -A --sort-by=memory 2>/dev/null \
+  || echo "metrics-server not installed."

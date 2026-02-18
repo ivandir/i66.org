@@ -1,0 +1,9 @@
+if [ -z "$DOMAIN" ]; then echo "Usage: DOMAIN=example.com i66 net/dig/txt"; exit 1; fi
+echo "=== TXT records for $DOMAIN ==="
+dig +short TXT $DOMAIN
+echo ""
+echo "=== DMARC (_dmarc.$DOMAIN) ==="
+dig +short TXT _dmarc.$DOMAIN
+echo ""
+echo "=== DKIM (default selector — adjust selector as needed) ==="
+dig +short TXT default._domainkey.$DOMAIN

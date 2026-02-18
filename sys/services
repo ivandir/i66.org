@@ -1,0 +1,5 @@
+echo "=== Failed systemd units ==="
+systemctl list-units --state=failed
+echo ""
+echo "=== Recently restarted services ==="
+systemctl list-units --type=service --state=running | head -30

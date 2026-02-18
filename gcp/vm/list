@@ -1,0 +1,2 @@
+gcloud compute instances list \
+  --format='table(name,zone,machineType,status,networkInterfaces[0].accessConfigs[0].natIP,creationTimestamp)'

@@ -1,0 +1,2 @@
+gcloud sql instances list \
+  --format='table(name,databaseVersion,region,tier,state,ipAddresses[0].ipAddress)'

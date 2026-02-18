@@ -1,0 +1,17 @@
+echo "Checking public access block config per bucket..."
+echo ""
+aws s3api list-buckets --query 'Buckets[*].Name' --output text | tr '\t' '\n' | while read bucket; do
+  result=$(aws s3api get-public-access-block --bucket "$bucket" 2>/dev/null \
+    | python3 -c "
+import sys, json
+d = json.load(sys.stdin).get('PublicAccessBlockConfiguration', {})
+blocked = all([
+  d.get('BlockPublicAcls', False),
+  d.get('IgnorePublicAcls', False),
+  d.get('BlockPublicPolicy', False),
+  d.get('RestrictPublicBuckets', False)
+])
+print('OK      ' if blocked else 'EXPOSED ')
+" 2>/dev/null || echo "NO-BLOCK")
+  printf "%-60s %s\n" "$bucket" "$result"
+done

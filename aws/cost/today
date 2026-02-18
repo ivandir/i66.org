@@ -1,0 +1,11 @@
+aws cloudwatch get-metric-statistics \
+  --namespace AWS/Billing \
+  --metric-name EstimatedCharges \
+  --dimensions Name=Currency,Value=USD \
+  --start-time $(date -u -d '2 days ago' +%Y-%m-%dT00:00:00Z) \
+  --end-time $(date -u +%Y-%m-%dT%H:%M:%SZ) \
+  --period 86400 \
+  --statistics Maximum \
+  --region us-east-1 \
+  --query 'sort_by(Datapoints,&Timestamp)[-1:].[Timestamp,Maximum]' \
+  --output table

@@ -1,0 +1,3 @@
+aws ec2 describe-key-pairs \
+  --query 'sort_by(KeyPairs,&KeyName)[*].[KeyName,KeyType,CreateTime,KeyFingerprint]' \
+  --output table

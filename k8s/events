@@ -1,0 +1,1 @@
+kubectl get events -A --field-selector type=Warning --sort-by='.lastTimestamp' | tail -40

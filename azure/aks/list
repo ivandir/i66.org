@@ -1,0 +1,3 @@
+az aks list \
+  --query '[*].[name,resourceGroup,kubernetesVersion,provisioningState,location,agentPoolProfiles[0].count]' \
+  --output table

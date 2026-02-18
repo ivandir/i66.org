@@ -1,0 +1,4 @@
+aws rds describe-events \
+  --duration 1440 \
+  --query 'sort_by(Events,&Date)[-30:].[SourceIdentifier,SourceType,Message,Date]' \
+  --output table

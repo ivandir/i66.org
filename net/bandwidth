@@ -1,0 +1,5 @@
+echo "=== Interface RX/TX byte counters ==="
+cat /proc/net/dev | column -t
+echo ""
+echo "=== Snapshot delta (2s) ==="
+ip -s link show | grep -E 'eth|ens|eno|bond|br' -A5

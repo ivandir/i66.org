@@ -1,0 +1,3 @@
+aws s3api list-buckets \
+  --query 'sort_by(Buckets,&CreationDate)[*].[Name,CreationDate]' \
+  --output table

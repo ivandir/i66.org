@@ -1,0 +1,1 @@
+ip neigh show 2>/dev/null || arp -n

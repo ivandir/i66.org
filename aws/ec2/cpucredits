@@ -1,0 +1,22 @@
+INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+REGION=$(curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | awk -F\" '{print $4}')
+echo "Instance: $INSTANCE_ID  Region: $REGION"
+aws cloudwatch get-metric-data \
+  --metric-data-queries "[{
+    \"Id\": \"cpu\",
+    \"MetricStat\": {
+      \"Metric\": {
+        \"Namespace\": \"AWS/EC2\",
+        \"MetricName\": \"CPUCreditBalance\",
+        \"Dimensions\": [{\"Name\": \"InstanceId\", \"Value\": \"$INSTANCE_ID\"}]
+      },
+      \"Period\": 300,
+      \"Stat\": \"Average\"
+    },
+    \"ReturnData\": true
+  }]" \
+  --start-time $(date -u -d '-10 minutes' +%Y-%m-%dT%H:%M:%SZ) \
+  --end-time $(date -u +%Y-%m-%dT%H:%M:%SZ) \
+  --region $REGION \
+  --query 'MetricDataResults[0].Values[0]' \
+  --output text

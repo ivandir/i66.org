@@ -1,0 +1,6 @@
+echo "=== ECS Clusters ==="
+aws ecs list-clusters --query 'clusterArns' --output text | tr '\t' '\n' | while read arn; do
+  aws ecs describe-clusters --clusters "$arn" \
+    --query 'clusters[0].[clusterName,status,runningTasksCount,pendingTasksCount,activeServicesCount]' \
+    --output table
+done

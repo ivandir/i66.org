@@ -1,0 +1,12 @@
+# Compiled binaries
+build/
+i66
+i66.exe
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
+*.swo

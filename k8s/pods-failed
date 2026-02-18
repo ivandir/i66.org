@@ -1,0 +1,5 @@
+echo "=== Failed pods ==="
+kubectl get pods -A --field-selector status.phase=Failed 2>/dev/null
+echo ""
+echo "=== CrashLoopBackOff / Error / Evicted ==="
+kubectl get pods -A | grep -E 'CrashLoopBackOff|OOMKilled|Evicted|Error' || echo "None found"

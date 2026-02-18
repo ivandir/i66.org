@@ -1,0 +1,4 @@
+aws rds describe-db-snapshots \
+  --snapshot-type manual \
+  --query 'sort_by(DBSnapshots,&SnapshotCreateTime)[-20:].[DBSnapshotIdentifier,DBInstanceIdentifier,SnapshotCreateTime,AllocatedStorage,Status,Encrypted]' \
+  --output table

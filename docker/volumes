@@ -1,0 +1,5 @@
+echo "=== Volumes ==="
+docker volume ls
+echo ""
+echo "=== Disk usage ==="
+docker system df

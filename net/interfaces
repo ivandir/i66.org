@@ -1,0 +1,3 @@
+ip -brief addr show
+echo ""
+ip -brief link show

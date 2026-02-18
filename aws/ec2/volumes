@@ -1,0 +1,3 @@
+aws ec2 describe-volumes \
+  --query 'sort_by(Volumes,&CreateTime)[*].[VolumeId,Size,VolumeType,State,Attachments[0].InstanceId,AvailabilityZone,Encrypted]' \
+  --output table

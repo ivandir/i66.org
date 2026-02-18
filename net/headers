@@ -1,0 +1,2 @@
+if [ -z "$URL" ]; then echo "Usage: URL=https://example.com i66 net/headers"; exit 1; fi
+curl -sI "$URL"

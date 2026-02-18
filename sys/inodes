@@ -1,0 +1,1 @@
+df -i | sort -k5 -rh | column -t

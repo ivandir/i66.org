@@ -1,0 +1,5 @@
+PROJECT=$(gcloud config get-value project 2>/dev/null)
+echo "IAM policy for project: $PROJECT"
+echo ""
+gcloud projects get-iam-policy "$PROJECT" \
+  --format='table(bindings[].role,bindings[].members)'

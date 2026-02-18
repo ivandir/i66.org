@@ -1,0 +1,5 @@
+echo "=== DNS resolvers (/etc/resolv.conf) ==="
+cat /etc/resolv.conf
+echo ""
+echo "=== /etc/hosts (non-comments) ==="
+grep -v '^#' /etc/hosts | grep -v '^$'

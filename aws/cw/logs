@@ -1,0 +1,3 @@
+aws logs describe-log-groups \
+  --query 'sort_by(logGroups,&lastEventTimestamp)[-30:].[logGroupName,storedBytes,retentionInDays,lastEventTimestamp]' \
+  --output table

@@ -1,0 +1,4 @@
+journalctl _SYSTEMD_UNIT=sshd.service 2>/dev/null | grep -E 'Failed|Invalid|error' | tail -20 \
+  || grep -E 'Failed|Invalid' /var/log/auth.log 2>/dev/null | tail -20 \
+  || grep -E 'Failed|Invalid' /var/log/secure 2>/dev/null | tail -20 \
+  || echo "No auth log found. Try: journalctl _SYSTEMD_UNIT=sshd.service"

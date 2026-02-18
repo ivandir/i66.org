@@ -1,0 +1,4 @@
+aws ec2 describe-snapshots \
+  --owner-ids self \
+  --query 'sort_by(Snapshots,&StartTime)[-20:].[SnapshotId,VolumeId,VolumeSize,State,StartTime,Description]' \
+  --output table

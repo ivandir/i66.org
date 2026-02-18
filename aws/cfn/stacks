@@ -1,0 +1,4 @@
+aws cloudformation list-stacks \
+  --stack-status-filter CREATE_COMPLETE UPDATE_COMPLETE ROLLBACK_COMPLETE UPDATE_ROLLBACK_COMPLETE CREATE_IN_PROGRESS UPDATE_IN_PROGRESS DELETE_IN_PROGRESS REVIEW_IN_PROGRESS \
+  --query 'sort_by(StackSummaries,&LastUpdatedTime)[*].[StackName,StackStatus,LastUpdatedTime]' \
+  --output table

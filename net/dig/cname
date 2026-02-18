@@ -1,0 +1,3 @@
+if [ -z "$DOMAIN" ]; then echo "Usage: DOMAIN=example.com i66 net/dig/cname"; exit 1; fi
+echo "=== CNAME chain for $DOMAIN ==="
+dig +short CNAME $DOMAIN

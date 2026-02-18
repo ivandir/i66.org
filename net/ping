@@ -1,0 +1,2 @@
+if [ -z "$HOST" ]; then echo "Usage: HOST=example.com i66 net/ping"; exit 1; fi
+ping -c 5 $HOST

@@ -1,0 +1,4 @@
+aws cloudwatch describe-alarms \
+  --state-value ALARM \
+  --query 'MetricAlarms[*].[AlarmName,MetricName,Namespace,StateReason]' \
+  --output table

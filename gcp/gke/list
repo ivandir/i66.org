@@ -1,0 +1,2 @@
+gcloud container clusters list \
+  --format='table(name,location,currentNodeCount,currentMasterVersion,status)'

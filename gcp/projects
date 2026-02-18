@@ -1,0 +1,2 @@
+gcloud projects list \
+  --format='table(projectId,name,projectNumber,lifecycleState)'

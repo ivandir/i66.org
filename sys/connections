@@ -1,0 +1,5 @@
+echo "=== Established TCP connections ==="
+ss -tnp state established
+echo ""
+echo "=== Connection count by state ==="
+ss -s

@@ -1,0 +1,3 @@
+if [ -z "$IP" ]; then echo "Usage: IP=1.2.3.4 i66 net/dig/ptr"; exit 1; fi
+echo "=== Reverse DNS (PTR) for $IP ==="
+dig +short -x $IP

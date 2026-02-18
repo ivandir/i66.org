@@ -1,0 +1,2 @@
+if [ -z "$DOMAIN" ]; then echo "Usage: DOMAIN=example.com i66 net/whois"; exit 1; fi
+whois $DOMAIN

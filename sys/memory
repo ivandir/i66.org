@@ -1,0 +1,3 @@
+free -h
+echo ""
+grep -E 'MemTotal|MemFree|MemAvailable|SwapTotal|SwapFree|Cached|Buffers' /proc/meminfo

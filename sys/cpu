@@ -1,0 +1,4 @@
+lscpu | grep -E 'Architecture|Model name|CPU\(s\)|Thread|Core|Socket|MHz|Vendor'
+echo ""
+echo "=== Load Average ==="
+uptime

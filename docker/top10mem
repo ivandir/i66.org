@@ -1,0 +1,2 @@
+docker stats --no-stream --format 'table {{.Name}}\t{{.MemUsage}}\t{{.MemPerc}}\t{{.CPUPerc}}' \
+  | sort -k3 -rh

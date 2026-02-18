@@ -1,0 +1,3 @@
+aws iam list-users \
+  --query 'sort_by(Users,&CreateDate)[*].[UserName,CreateDate,PasswordLastUsed]' \
+  --output table
