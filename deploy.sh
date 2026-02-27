@@ -34,6 +34,13 @@ aws s3 sync . "$BUCKET" \
   --include "ssl/*" \
   --include "docker/*" \
   --include "k8s/*" \
+  --include "git/*" \
+  --include "helm/*" \
+  --include "terraform/*" \
+  --include "db/*" \
+  --include "redis/*" \
+  --include "nginx/*" \
+  --include "vault/*" \
   --include "cpucredits" \
   --include "aws-cli-describe-stack-resources" \
   --content-type "text/plain; charset=utf-8" \
