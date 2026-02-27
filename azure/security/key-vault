@@ -1,0 +1,1 @@
+az keyvault list --output table --query '[*].[name,location,resourceGroup]'

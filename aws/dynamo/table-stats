@@ -1,0 +1,1 @@
+aws dynamodb describe-table --table-name "${TABLE:?TABLE env var required}" --query 'Table.[TableName,TableStatus,ItemCount,TableSizeBytes,BillingModeSummary.BillingMode,ProvisionedThroughput.ReadCapacityUnits,ProvisionedThroughput.WriteCapacityUnits]' --output table

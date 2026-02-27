@@ -1,0 +1,1 @@
+dmesg --level=err,warn -T 2>/dev/null | tail -50 || dmesg | grep -iE "error|warn|fail" | tail -50

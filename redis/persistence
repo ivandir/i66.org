@@ -1,0 +1,1 @@
+redis-cli INFO persistence | grep -E 'rdb_|aof_'

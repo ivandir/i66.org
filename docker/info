@@ -1,0 +1,1 @@
+docker info 2>/dev/null | grep -E "Server Version|Storage Driver|Containers|Images|Memory|CPUs|Operating System|Kernel Version|Docker Root Dir"

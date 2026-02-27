@@ -1,0 +1,1 @@
+redis-cli CONFIG GET maxmemory && redis-cli CONFIG GET maxmemory-policy && redis-cli CONFIG GET save && redis-cli CONFIG GET appendonly

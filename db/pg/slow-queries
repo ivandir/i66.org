@@ -1,0 +1,1 @@
+psql -c "SELECT round(mean_exec_time::numeric,2) AS mean_ms, calls, round(total_exec_time::numeric,2) AS total_ms, query FROM pg_stat_statements WHERE mean_exec_time > 1000 ORDER BY mean_exec_time DESC LIMIT 20;" 2>/dev/null || echo "Enable pg_stat_statements extension to use this command"

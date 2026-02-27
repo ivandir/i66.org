@@ -1,0 +1,1 @@
+redis-cli INFO stats | grep -E 'total_commands_processed|keyspace_hits|keyspace_misses|evicted_keys|expired_keys|total_connections_received'

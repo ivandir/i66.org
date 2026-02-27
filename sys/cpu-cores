@@ -1,0 +1,1 @@
+lscpu | grep -E '^CPU\(s\)|^Thread|^Core|^Socket|MHz|Architecture|Vendor'

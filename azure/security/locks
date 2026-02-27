@@ -1,0 +1,1 @@
+az lock list --output table --query '[*].[name,level,resourceName,resourceType,resourceGroup]'

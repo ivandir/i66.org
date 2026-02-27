@@ -1,0 +1,1 @@
+gcloud pubsub subscriptions list --format='table(name,topic,pushConfig.pushEndpoint,ackDeadlineSeconds,messageRetentionDuration)'

@@ -1,0 +1,1 @@
+echo | openssl s_client -connect "${DOMAIN:?DOMAIN env var required}:443" 2>/dev/null | grep -E "Protocol|Cipher|Server certificate"

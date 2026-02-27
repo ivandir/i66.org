@@ -1,0 +1,1 @@
+curl -sI "https://${DOMAIN:?DOMAIN env var required}" | grep -i "strict-transport\|x-frame\|x-content-type\|x-xss"

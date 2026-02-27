@@ -1,0 +1,1 @@
+gcloud compute firewall-rules list --format='table(name,network,direction,priority,disabled,targetTags.list():label=TARGETS)'

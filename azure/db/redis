@@ -1,0 +1,1 @@
+az redis list --output table --query '[*].[name,location,sku.name,provisioningState,resourceGroup]'

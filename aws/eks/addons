@@ -1,0 +1,1 @@
+aws eks list-clusters --query 'clusters' --output text | tr '\t' '\n' | while read c; do echo "=== $c ==="; aws eks list-addons --cluster-name "$c" --query 'addons' --output table 2>/dev/null; done

@@ -1,0 +1,1 @@
+aws cloudfront list-distributions --query 'DistributionList.Items[*].[Id,DomainName,Status,Enabled,PriceClass]' --output table

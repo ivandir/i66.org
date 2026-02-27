@@ -1,0 +1,1 @@
+aws ssm list-documents --filters Key=Owner,Values=Self --query 'DocumentIdentifiers[*].[Name,DocumentType,DocumentVersion,PlatformTypes[0],CreatedDate]' --output table

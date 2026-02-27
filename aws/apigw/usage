@@ -1,0 +1,1 @@
+aws apigateway get-usage-plans --query 'items[*].[name,id,throttle.rateLimit,throttle.burstLimit,quota.limit,quota.period]' --output table 2>/dev/null || echo "No usage plans configured"

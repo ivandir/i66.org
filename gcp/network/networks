@@ -1,0 +1,1 @@
+gcloud compute networks list --format='table(name,subnetMode,mtu,autoCreateSubnetworks)'

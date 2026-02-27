@@ -1,0 +1,1 @@
+dig CAA ${DOMAIN:?DOMAIN env var required}

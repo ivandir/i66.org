@@ -1,0 +1,1 @@
+gcloud alpha monitoring policies list --format='table(name,displayName,enabled,conditions[0].displayName)' 2>/dev/null || gcloud monitoring alert-policies list 2>/dev/null || echo "Requires monitoring permissions (gcloud alpha monitoring)"

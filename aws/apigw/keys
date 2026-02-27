@@ -1,0 +1,1 @@
+aws apigateway get-api-keys --include-values false --query 'items[*].[name,id,enabled,createdDate,lastUpdatedDate]' --output table

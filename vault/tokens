@@ -1,0 +1,1 @@
+vault list auth/token/accessors 2>/dev/null | head -20 || echo "Requires root token or appropriate policy"

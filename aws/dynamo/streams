@@ -1,0 +1,1 @@
+aws dynamodbstreams list-streams --query 'Streams[*].[StreamArn,TableName,StreamStatus,StreamViewType]' --output table

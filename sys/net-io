@@ -1,0 +1,1 @@
+awk 'NR>2{gsub(/:/, " "); printf "%-12s RX:%-15s bytes  TX:%-15s bytes\n",$1,$2,$10}' /proc/net/dev

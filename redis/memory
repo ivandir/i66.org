@@ -1,0 +1,1 @@
+redis-cli INFO memory | grep -E 'used_memory_human|used_memory_peak_human|mem_fragmentation_ratio|maxmemory_human|mem_allocator'

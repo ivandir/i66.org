@@ -1,0 +1,1 @@
+az appservice plan list --output table --query '[*].[name,location,sku.tier,sku.size,numberOfSites,resourceGroup]'

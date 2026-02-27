@@ -1,0 +1,1 @@
+az network public-ip list --output table --query '[*].[name,location,ipAddress,publicIPAllocationMethod,sku.name]'

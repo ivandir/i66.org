@@ -1,0 +1,1 @@
+az monitor metrics alert list --output table --query '[*].[name,severity,enabled,location,resourceGroup]' 2>/dev/null || echo "No metric alerts found"

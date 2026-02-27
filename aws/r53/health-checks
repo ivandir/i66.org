@@ -1,0 +1,1 @@
+aws route53 list-health-checks --query 'HealthChecks[*].[Id,HealthCheckConfig.Type,HealthCheckConfig.FullyQualifiedDomainName,HealthCheckConfig.Port,HealthCheckConfig.RequestInterval]' --output table

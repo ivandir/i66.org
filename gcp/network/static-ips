@@ -1,0 +1,1 @@
+gcloud compute addresses list --format='table(name,address,addressType,status,region)'

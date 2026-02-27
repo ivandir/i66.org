@@ -1,0 +1,1 @@
+aws ecr describe-images --repository-name "${REPO:?REPO env var required}" --query 'imageDetails[*].[imageTags[0],imageDigest,imageSizeInBytes,imagePushedAt]' --output table

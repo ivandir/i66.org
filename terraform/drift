@@ -1,0 +1,1 @@
+terraform plan -no-color 2>&1 | grep -E "^Plan:|must be replaced|will be|will create|will destroy|No changes" | head -30

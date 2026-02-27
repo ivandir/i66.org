@@ -1,0 +1,1 @@
+cat /etc/sudoers 2>/dev/null && echo "--- /etc/sudoers.d ---" && ls /etc/sudoers.d/ 2>/dev/null

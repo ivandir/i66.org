@@ -1,0 +1,1 @@
+aws sqs list-queues --query 'QueueUrls' --output text | tr '\t' '\n' | while read q; do msgs=$(aws sqs get-queue-attributes --queue-url "$q" --attribute-names ApproximateNumberOfMessages ApproximateNumberOfMessagesNotVisible --query 'Attributes' --output text 2>/dev/null); printf "%-80s %s\n" "$(basename $q)" "$msgs"; done

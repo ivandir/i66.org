@@ -1,0 +1,1 @@
+find / \( -path /proc -o -path /sys -o -path /dev \) -prune -o -perm -0002 -type f -print 2>/dev/null | sort

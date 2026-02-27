@@ -1,0 +1,1 @@
+terraform get 2>/dev/null; cat .terraform/modules/modules.json 2>/dev/null | python3 -c "import sys,json; [print(f\"{m.get('Key',''):<20} {m.get('Source',''):<50} {m.get('Version','')}\") for m in json.load(sys.stdin).get('Modules',[])]" 2>/dev/null || echo "No modules found"

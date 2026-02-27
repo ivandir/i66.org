@@ -1,0 +1,1 @@
+curl -L -o /dev/null -s -w "%{url_effective}\n" -D - "${URL:?URL env var required}" | grep -E "^HTTP|^Location"

@@ -1,0 +1,1 @@
+mysql -e "SHOW VARIABLES WHERE Variable_name IN ('max_connections','innodb_buffer_pool_size','query_cache_size','slow_query_log','long_query_time','innodb_log_file_size','character_set_server');"

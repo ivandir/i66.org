@@ -1,0 +1,1 @@
+gcloud compute routes list --format='table(name,network,destRange,nextHopGateway,nextHopInstance,priority)'

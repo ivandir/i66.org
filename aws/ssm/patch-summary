@@ -1,0 +1,1 @@
+aws ssm describe-patch-group-state --patch-group "${PATCH_GROUP:-default}" --output table 2>/dev/null || echo "No patch group found. Try PATCH_GROUP=<group-name>"

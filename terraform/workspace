@@ -1,0 +1,1 @@
+terraform workspace list && echo "Current: $(terraform workspace show)"

@@ -1,0 +1,1 @@
+az monitor metrics list-definitions --resource "${RESOURCE_ID:?RESOURCE_ID env var required}" --output table --query 'value[*].[name.value,unit,category]'

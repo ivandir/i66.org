@@ -1,0 +1,1 @@
+gcloud run revisions list --format='table(metadata.name,spec.containerConcurrency,status.observedGeneration,metadata.creationTimestamp)'

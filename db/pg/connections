@@ -1,0 +1,1 @@
+psql -c "SELECT datname, usename, state, count(*) FROM pg_stat_activity GROUP BY datname, usename, state ORDER BY count DESC;"

@@ -1,0 +1,1 @@
+curl -s ${VAULT_ADDR:-http://127.0.0.1:8200}/v1/sys/health | python3 -m json.tool 2>/dev/null || curl -s ${VAULT_ADDR:-http://127.0.0.1:8200}/v1/sys/health

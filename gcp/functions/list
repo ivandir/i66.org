@@ -1,0 +1,1 @@
+gcloud functions list --format='table(name,status,runtime,region,trigger)' 2>/dev/null || gcloud functions list

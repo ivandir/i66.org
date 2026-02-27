@@ -1,0 +1,1 @@
+psql -c "SELECT schemaname, tablename, last_vacuum, last_autovacuum, last_analyze, last_autoanalyze FROM pg_stat_user_tables ORDER BY last_autovacuum NULLS FIRST LIMIT 20;"

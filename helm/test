@@ -1,0 +1,1 @@
+helm test ${RELEASE:?RELEASE env var required}

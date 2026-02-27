@@ -1,0 +1,1 @@
+vault list sys/leases/lookup 2>/dev/null || echo "Requires root token or lease management policy"

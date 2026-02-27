@@ -1,0 +1,1 @@
+aws ec2 describe-subnets --query 'Subnets[*].[SubnetId,VpcId,CidrBlock,AvailabilityZone,AvailableIpAddressCount,Tags[?Key==`Name`].Value|[0]]' --output table

@@ -1,0 +1,1 @@
+gcloud run domain-mappings list --format='table(metadata.name,spec.routeName,status.conditions[0].status)' 2>/dev/null || echo "No domain mappings configured"

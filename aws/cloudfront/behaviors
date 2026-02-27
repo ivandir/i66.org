@@ -1,0 +1,1 @@
+aws cloudfront get-distribution --id "${DIST_ID:?DIST_ID env var required}" --query 'Distribution.DistributionConfig.CacheBehaviors.Items[*].[PathPattern,TargetOriginId,ViewerProtocolPolicy,CachePolicyId]' --output table 2>/dev/null || echo "Use DIST_ID=<distribution-id>"

@@ -1,0 +1,1 @@
+aws sqs list-queues --query 'QueueUrls' --output text | tr '\t' '\n' | grep -iE "dlq|dead.letter|deadletter|fail" || echo "No DLQ-named queues found (filter: dlq|dead-letter|fail)"

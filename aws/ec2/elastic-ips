@@ -1,0 +1,1 @@
+aws ec2 describe-addresses --query 'Addresses[*].[PublicIp,AllocationId,InstanceId,AssociationId,Domain]' --output table

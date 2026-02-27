@@ -1,0 +1,1 @@
+docker compose ps 2>/dev/null || docker-compose ps 2>/dev/null || echo "No docker-compose.yml found in current directory"

@@ -1,0 +1,1 @@
+aws iam list-groups --query 'Groups[*].[GroupName,GroupId,Path,CreateDate]' --output table

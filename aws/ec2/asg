@@ -1,0 +1,1 @@
+aws autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[*].[AutoScalingGroupName,MinSize,MaxSize,DesiredCapacity,HealthCheckType,CreatedTime]' --output table

@@ -1,0 +1,1 @@
+aws ecr describe-repositories --query 'repositories[*].repositoryName' --output text | tr '\t' '\n' | while read r; do policy=$(aws ecr get-lifecycle-policy --repository-name "$r" --query 'lifecyclePolicyText' --output text 2>/dev/null && echo "configured" || echo "none"); printf "%-50s %s\n" "$r" "$policy"; done

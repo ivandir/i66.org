@@ -1,0 +1,1 @@
+aws ecr describe-repositories --query 'repositories[*].repositoryName' --output text | tr '\t' '\n' | while read r; do count=$(aws ecr list-images --repository-name "$r" --filter tagStatus=UNTAGGED --query 'length(imageIds)' --output text 2>/dev/null); [ "${count:-0}" -gt "0" ] 2>/dev/null && printf "%-50s %s untagged images\n" "$r" "$count"; done

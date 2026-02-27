@@ -1,0 +1,1 @@
+az functionapp list --output table --query '[*].[name,location,state,kind,hostNames[0]]'

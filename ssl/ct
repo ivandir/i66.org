@@ -1,0 +1,1 @@
+curl -s "https://crt.sh/?q=${DOMAIN:?DOMAIN env var required}&output=json" 2>/dev/null | python3 -c "import sys,json; [print(e['logged_at'][:10], e['name_value'][:80]) for e in json.load(sys.stdin)[:10]]" 2>/dev/null || echo "Set DOMAIN=example.com"

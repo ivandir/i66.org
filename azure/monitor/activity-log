@@ -1,0 +1,1 @@
+az monitor activity-log list --max-events 20 --output table --query '[*].[eventTimestamp,level,resourceType,operationName.value,status.value]'

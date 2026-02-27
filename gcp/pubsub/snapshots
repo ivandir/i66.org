@@ -1,0 +1,1 @@
+gcloud pubsub snapshots list --format='table(name,topic,expireTime)' 2>/dev/null || echo "No snapshots found"

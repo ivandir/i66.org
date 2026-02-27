@@ -1,0 +1,1 @@
+aws sns list-subscriptions --query 'Subscriptions[*].[TopicArn,Protocol,Endpoint,SubscriptionArn]' --output table

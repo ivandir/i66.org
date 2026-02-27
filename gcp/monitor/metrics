@@ -1,0 +1,1 @@
+gcloud logging metrics list --format='table(name,description,filter)' 2>/dev/null || echo "No custom log-based metrics found"

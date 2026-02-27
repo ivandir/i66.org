@@ -1,0 +1,1 @@
+gcloud functions list --format='value(name,region)' | while read name region; do gcloud functions describe "$name" --region="${region:-us-central1}" --format='table[box](name,eventTrigger.eventType,httpsTrigger.url)' 2>/dev/null; done | head -60

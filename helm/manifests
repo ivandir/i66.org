@@ -1,0 +1,1 @@
+helm get manifest ${RELEASE:?RELEASE env var required}

@@ -1,0 +1,1 @@
+aws route53resolver list-resolver-endpoints --query 'ResolverEndpoints[*].[Name,Direction,Status,HostVPCId,SecurityGroupIds[0]]' --output table 2>/dev/null || echo "No Route53 Resolver endpoints found in this region"

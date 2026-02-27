@@ -1,0 +1,1 @@
+gcloud sql users list --instance="${INSTANCE:?INSTANCE env var required}" --format='table(name,host,type)'

@@ -1,0 +1,1 @@
+aws s3api list-buckets --query 'Buckets[*].Name' --output text | tr '\t' '\n' | while read b; do aws s3 ls --summarize --recursive "s3://$b" 2>/dev/null | awk -v b="$b" '/Total Objects/{o=$3} /Total Size/{s=$3; printf "%-50s objects:%-8s size:%-20s bytes\n",b,o,s}'; done

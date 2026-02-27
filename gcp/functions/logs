@@ -1,0 +1,1 @@
+gcloud functions logs read --limit=50 --format='table(level,name,time_utc,log)' 2>/dev/null || gcloud logging read "resource.type=cloud_function" --limit=50 --format='table(timestamp,severity,jsonPayload.message)'

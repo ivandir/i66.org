@@ -1,0 +1,1 @@
+aws dynamodb list-exports --query 'ExportSummaries[*].[ExportArn,TableArn,ExportStatus,ExportTime,ExportFormat]' --output table 2>/dev/null || echo "No DynamoDB exports found"

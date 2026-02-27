@@ -1,0 +1,1 @@
+aws dynamodb describe-table --table-name "${TABLE:?TABLE env var required}" --query 'Table.GlobalSecondaryIndexes[*].[IndexName,IndexStatus,ItemCount,ProvisionedThroughput.ReadCapacityUnits,ProvisionedThroughput.WriteCapacityUnits]' --output table 2>/dev/null || echo "No GSIs on table ${TABLE}"

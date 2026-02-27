@@ -1,0 +1,1 @@
+lvs 2>/dev/null || echo "LVM not available or requires root"

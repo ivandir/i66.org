@@ -1,0 +1,1 @@
+az network application-gateway list --output table --query '[*].[name,location,provisioningState,sku.tier,resourceGroup]'

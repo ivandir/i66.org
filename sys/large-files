@@ -1,0 +1,1 @@
+find / \( -path /proc -o -path /sys -o -path /dev \) -prune -o -type f -size +100M -print 2>/dev/null | xargs ls -lh 2>/dev/null | sort -k5 -rh | head -20

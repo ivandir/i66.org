@@ -1,0 +1,1 @@
+az security pricing list --output table --query 'value[*].[name,pricingTier]' 2>/dev/null || echo "Requires Azure Security Center / Defender for Cloud permissions"

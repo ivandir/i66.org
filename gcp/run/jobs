@@ -1,0 +1,1 @@
+gcloud run jobs list --format='table(metadata.name,metadata.namespace,status.latestCreatedExecution.name,metadata.creationTimestamp)' 2>/dev/null || echo "No Cloud Run jobs found"

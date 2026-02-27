@@ -1,0 +1,1 @@
+git ls-files | xargs ls -l 2>/dev/null | sort -k5 -rn | head -20 | awk '{print $5, $9}'

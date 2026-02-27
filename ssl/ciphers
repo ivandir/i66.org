@@ -1,0 +1,1 @@
+nmap --script ssl-enum-ciphers -p 443 "${DOMAIN:?DOMAIN env var required}" 2>/dev/null || echo "Install nmap for cipher enumeration"

@@ -1,0 +1,1 @@
+aws apigateway get-rest-apis --query 'items[*].id' --output text | tr '\t' '\n' | while read api; do echo "=== $api ==="; aws apigateway get-stages --rest-api-id "$api" --query 'item[*].[stageName,deploymentId,lastUpdatedDate,cacheClusterEnabled]' --output table 2>/dev/null; done

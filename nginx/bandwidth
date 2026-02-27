@@ -1,0 +1,1 @@
+awk '{print $10, $7}' /var/log/nginx/access.log 2>/dev/null | sort -k1 -rn | head -10 | awk '{printf "%10s bytes  %s\n", $1, $2}' || echo "No access log found at /var/log/nginx/access.log"

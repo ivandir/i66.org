@@ -1,0 +1,1 @@
+git config --list --local 2>/dev/null || echo "Not inside a git repository"

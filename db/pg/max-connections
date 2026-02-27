@@ -1,0 +1,1 @@
+psql -c "SELECT setting::int AS max_connections FROM pg_settings WHERE name='max_connections';" && psql -c "SELECT count(*) AS current_connections FROM pg_stat_activity;"

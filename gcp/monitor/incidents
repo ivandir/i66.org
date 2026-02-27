@@ -1,0 +1,1 @@
+gcloud alpha monitoring incidents list --format='table(name,startTime,state,policy)' 2>/dev/null || echo "No active incidents or requires alpha access"

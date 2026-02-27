@@ -1,0 +1,1 @@
+az network vnet list --query '[*].[name,resourceGroup]' --output tsv | while read name rg; do az network vnet peering list --vnet-name "$name" --resource-group "$rg" --output table --query '[*].[name,peeringState,remoteVirtualNetwork.id]' 2>/dev/null; done

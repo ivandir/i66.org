@@ -1,0 +1,1 @@
+gcloud compute networks list --format='value(name)' | while read n; do gcloud compute networks peerings list --network "$n" --format='table(name,network,peerNetwork,state)' 2>/dev/null; done

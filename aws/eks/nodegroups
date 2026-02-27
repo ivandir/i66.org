@@ -1,0 +1,1 @@
+aws eks list-clusters --query 'clusters' --output text | tr '\t' '\n' | while read c; do echo "=== $c ==="; aws eks list-nodegroups --cluster-name "$c" --query 'nodegroups' --output table; done

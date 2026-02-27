@@ -1,0 +1,1 @@
+az mysql flexible-server list --output table --query '[*].[name,location,sku.name,version,state]' 2>/dev/null || az mysql server list --output table --query '[*].[name,location,sku.name,version,userVisibleState]'

@@ -1,0 +1,1 @@
+aws iam list-virtual-mfa-devices --query 'VirtualMFADevices[*].[SerialNumber,User.UserName,EnableDate]' --output table

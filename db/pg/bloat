@@ -1,0 +1,1 @@
+psql -c "SELECT schemaname, tablename, n_dead_tup, n_live_tup, round(100.0*n_dead_tup/NULLIF(n_live_tup+n_dead_tup,0),2) AS dead_pct FROM pg_stat_user_tables ORDER BY dead_pct DESC NULLS LAST LIMIT 10;"

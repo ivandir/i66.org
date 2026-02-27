@@ -1,0 +1,1 @@
+helm get hooks ${RELEASE:?RELEASE env var required}

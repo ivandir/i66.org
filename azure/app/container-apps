@@ -1,0 +1,1 @@
+az containerapp list --output table --query '[*].[name,location,provisioningState,resourceGroup]' 2>/dev/null || echo "Container Apps not available or not installed (try: az extension add --name containerapp)"

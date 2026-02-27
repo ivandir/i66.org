@@ -1,0 +1,1 @@
+aws cloudfront list-invalidations --distribution-id "${DIST_ID:?DIST_ID env var required}" --query 'InvalidationList.Items[*].[Id,Status,CreateTime]' --output table 2>/dev/null || echo "Use DIST_ID=<distribution-id>"

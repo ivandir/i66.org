@@ -1,0 +1,1 @@
+aws ssm list-compliance-summaries --query 'EntityList[*].[Id,Summary.ComplianceType,Summary.OverallSeveritySummary.Status,Summary.CompliantCount,Summary.NonCompliantCount]' --output table 2>/dev/null || echo "No compliance summary data"

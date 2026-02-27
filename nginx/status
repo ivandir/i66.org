@@ -1,0 +1,1 @@
+curl -s http://localhost/nginx_status 2>/dev/null || curl -s http://127.0.0.1/nginx_status 2>/dev/null || echo "Enable stub_status: location /nginx_status { stub_status; allow 127.0.0.1; deny all; }"

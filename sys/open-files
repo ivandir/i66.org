@@ -1,0 +1,1 @@
+lsof 2>/dev/null | awk 'NR>1{print $1}' | sort | uniq -c | sort -rn | head -20 || echo "lsof not available or requires root"

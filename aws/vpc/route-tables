@@ -1,0 +1,1 @@
+aws ec2 describe-route-tables --query 'RouteTables[*].[RouteTableId,VpcId,length(Routes),Tags[?Key==`Name`].Value|[0]]' --output table

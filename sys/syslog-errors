@@ -1,0 +1,1 @@
+journalctl -p err -n 50 --no-pager 2>/dev/null || grep -iE "error|fail|critical" /var/log/syslog 2>/dev/null | tail -50 || grep -iE "error|fail|critical" /var/log/messages 2>/dev/null | tail -50

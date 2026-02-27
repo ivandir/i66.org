@@ -1,0 +1,1 @@
+aws ecr describe-image-scan-findings --repository-name "${REPO:?REPO env var required}" --image-id imageTag=${TAG:-latest} --query 'imageScanFindings.findingSeverityCounts' --output table 2>/dev/null || echo "Use REPO=<name> TAG=<tag> i66 aws/ecr/scan-findings"

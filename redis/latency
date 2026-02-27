@@ -1,0 +1,1 @@
+redis-cli LATENCY LATEST 2>/dev/null || redis-cli LATENCY HISTORY event 2>/dev/null || echo "No latency data recorded"

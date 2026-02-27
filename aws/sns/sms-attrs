@@ -1,0 +1,1 @@
+aws sns get-sms-attributes --output table 2>/dev/null || echo "No SMS attributes or no permission"

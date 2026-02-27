@@ -1,0 +1,1 @@
+mysql -e "SELECT user, host, plugin, account_locked FROM mysql.user ORDER BY user;"

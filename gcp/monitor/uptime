@@ -1,0 +1,1 @@
+gcloud monitoring uptime list-configs --format='table(displayName,monitoredResource.type,period,timeout)' 2>/dev/null || echo "No uptime checks found or requires monitoring permissions"

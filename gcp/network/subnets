@@ -1,0 +1,1 @@
+gcloud compute networks subnets list --format='table(name,region,network,ipCidrRange,purpose,privateIpGoogleAccess)'

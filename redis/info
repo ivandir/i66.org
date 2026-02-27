@@ -1,0 +1,1 @@
+redis-cli INFO server | grep -E 'redis_version|uptime_in_seconds|tcp_port|os|executable'

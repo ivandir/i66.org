@@ -1,0 +1,1 @@
+gcloud run services list --format='table(metadata.name,status.url,status.conditions[0].status,metadata.namespace,spec.template.spec.containers[0].image)'
