@@ -338,7 +338,7 @@ Commands that take a target use environment variables (`DOMAIN`, `HOST`, `IP`, `
 </details>
 
 <details>
-<summary><strong>Azure</strong> — 32 commands (VMs, AKS, networking, databases, monitor, app services, security)</summary>
+<summary><strong>Azure</strong> — 36 commands (VMs, AKS, networking, databases, monitor, app services, security)</summary>
 
 ### Core
 
@@ -357,55 +357,59 @@ Commands that take a target use environment variables (`DOMAIN`, `HOST`, `IP`, `
 
 | Command | Description |
 | --- | --- |
-| `azure/network/vnet-list` | All Virtual Networks |
-| `azure/network/nsg-list` | All Network Security Groups |
-| `azure/network/lb-list` | All load balancers |
+| `azure/network/list` | All Virtual Networks with CIDR |
+| `azure/network/subnets` | Subnets across all VNets |
+| `azure/network/nsgs` | Network Security Groups |
 | `azure/network/public-ips` | All public IP addresses |
-| `azure/network/dns-zones` | All DNS zones and record set counts |
-| `azure/network/app-gw` | All Application Gateways |
-| `azure/network/routes` | All route tables |
-| `azure/network/peerings` | VNet peering connections |
+| `azure/network/load-balancers` | Load balancers |
+| `azure/network/app-gw` | Application Gateways |
+| `azure/network/vnet-peering` | VNet peering connections |
+| `azure/network/route-tables` | Route tables |
+| `azure/network/dns-zones` | DNS zones and record set counts |
 
 ### Databases
 
 | Command | Description |
 | --- | --- |
 | `azure/db/sql-servers` | Azure SQL servers |
-| `azure/db/cosmosdb` | Cosmos DB accounts |
+| `azure/db/cosmos` | Cosmos DB accounts |
 | `azure/db/postgres` | PostgreSQL flexible servers |
 | `azure/db/mysql` | MySQL flexible servers |
-| `azure/db/redis` | Azure Cache for Redis |
+| `azure/db/redis-caches` | Azure Cache for Redis |
 
 ### Monitor
 
 | Command | Description |
 | --- | --- |
-| `azure/monitor/alerts` | Metric alert rules |
+| `azure/monitor/alerts` | Active alerts |
 | `azure/monitor/metrics` | Metric definitions for a resource (`RESOURCE_ID=`) |
-| `azure/monitor/activity-log` | Last 20 activity log events |
+| `azure/monitor/log-workspaces` | Log Analytics workspaces |
 | `azure/monitor/action-groups` | Action groups |
+| `azure/monitor/activity-log` | Recent activity log events |
 
 ### App Services
 
 | Command | Description |
 | --- | --- |
-| `azure/app/web-apps` | All Web Apps |
-| `azure/app/function-apps` | All Function Apps |
-| `azure/app/app-plans` | App Service Plans |
-| `azure/app/container-apps` | Azure Container Apps |
+| `azure/app/app-services` | App Service plans and apps |
+| `azure/app/app-plans` | App Service Plans with tier and capacity |
+| `azure/app/function-apps` | Function Apps |
+| `azure/app/container-apps` | Container Apps |
+| `azure/app/acr` | Azure Container Registry instances |
 
 ### Security
 
 | Command | Description |
 | --- | --- |
-| `azure/security/key-vault` | All Key Vaults |
-| `azure/security/defender-status` | Defender for Cloud pricing tier per service |
-| `azure/security/locks` | Resource locks |
+| `azure/security/recommendations` | Defender for Cloud recommendations |
+| `azure/security/defender-status` | Defender plan status per subscription |
+| `azure/security/key-vaults` | Key Vault instances |
+| `azure/security/locks` | Resource locks across subscriptions |
 
 </details>
 
 <details>
-<summary><strong>GCP</strong> — 32 commands (Compute, GKE, Cloud SQL, Cloud Run, Functions, Pub/Sub, networking, monitoring)</summary>
+<summary><strong>GCP</strong> — 38 commands (Compute, GKE, Cloud SQL, Cloud Run, Functions, Pub/Sub, networking, monitoring)</summary>
 
 ### Core
 
@@ -427,30 +431,33 @@ Commands that take a target use environment variables (`DOMAIN`, `HOST`, `IP`, `
 | Command | Description |
 | --- | --- |
 | `gcp/network/networks` | All VPC networks |
-| `gcp/network/subnets` | All subnets across regions |
-| `gcp/network/firewall` | Firewall rules |
-| `gcp/network/static-ips` | Reserved static IP addresses |
-| `gcp/network/lb` | Forwarding rules (load balancers) |
-| `gcp/network/routes` | Custom routes |
+| `gcp/network/subnets` | Subnets per region |
+| `gcp/network/firewall-rules` | Firewall rules |
+| `gcp/network/public-ips` | Reserved external IPs |
+| `gcp/network/load-balancers` | Forwarding rules (load balancers) |
+| `gcp/network/cloud-dns` | Cloud DNS managed zones |
+| `gcp/network/vpn-tunnels` | VPN tunnels |
 | `gcp/network/peerings` | VPC peering connections |
-| `gcp/network/dns` | Cloud DNS managed zones |
+| `gcp/network/routes` | Custom routes |
 
 ### Cloud Run
 
 | Command | Description |
 | --- | --- |
 | `gcp/run/services` | All Cloud Run services |
-| `gcp/run/revisions` | All revisions |
+| `gcp/run/revisions` | Recent revisions per service |
 | `gcp/run/jobs` | Cloud Run jobs |
 | `gcp/run/domains` | Domain mappings |
+| `gcp/run/regions` | Regions with Cloud Run services |
 
 ### Cloud Functions
 
 | Command | Description |
 | --- | --- |
 | `gcp/functions/list` | All Cloud Functions |
+| `gcp/functions/logs` | Recent function execution logs |
+| `gcp/functions/runtimes` | Available runtimes |
 | `gcp/functions/triggers` | Trigger types per function |
-| `gcp/functions/logs` | Recent function logs |
 
 ### Pub/Sub
 
@@ -464,10 +471,13 @@ Commands that take a target use environment variables (`DOMAIN`, `HOST`, `IP`, `
 
 | Command | Description |
 | --- | --- |
-| `gcp/monitor/alerts` | Alert policies |
-| `gcp/monitor/uptime` | Uptime check configs |
-| `gcp/monitor/metrics` | Custom log-based metrics |
+| `gcp/monitor/alert-policies` | Alerting policies |
+| `gcp/monitor/alerts` | Active alerting policies with state |
 | `gcp/monitor/incidents` | Active incidents |
+| `gcp/monitor/metrics` | Custom log-based metrics |
+| `gcp/monitor/uptime-checks` | Uptime check configs |
+| `gcp/monitor/dashboards` | Custom dashboards |
+| `gcp/monitor/notification-channels` | Notification channels |
 
 </details>
 

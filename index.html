@@ -1222,6 +1222,7 @@ const SECTIONS = [
     { cmd: 'azure/network/nsgs',           desc: 'Network Security Groups' },
     { cmd: 'azure/network/public-ips',     desc: 'Public IP addresses' },
     { cmd: 'azure/network/load-balancers', desc: 'Load balancers' },
+    { cmd: 'azure/network/app-gw',         desc: 'Application Gateways' },
     { cmd: 'azure/network/vnet-peering',   desc: 'VNet peering connections' },
     { cmd: 'azure/network/route-tables',   desc: 'Route tables' },
     { cmd: 'azure/network/dns-zones',      desc: 'DNS zones' },
@@ -1237,10 +1238,12 @@ const SECTIONS = [
     { cmd: 'azure/monitor/alerts',         desc: 'Active alerts' },
     { cmd: 'azure/monitor/metrics',        desc: 'Available metrics for a resource — RESOURCE_ID=...' },
     { cmd: 'azure/monitor/log-workspaces', desc: 'Log Analytics workspaces' },
+    { cmd: 'azure/monitor/action-groups',  desc: 'Action groups' },
     { cmd: 'azure/monitor/activity-log',   desc: 'Recent activity log events' },
   ]},
   { id: 'azure-app', title: 'Apps', group: 'Azure', env: ['bash', 'azure-cli'], commands: [
     { cmd: 'azure/app/app-services',   desc: 'App Service plans and apps' },
+    { cmd: 'azure/app/app-plans',      desc: 'App Service Plans with tier and capacity' },
     { cmd: 'azure/app/function-apps',  desc: 'Function Apps' },
     { cmd: 'azure/app/container-apps', desc: 'Container Apps' },
     { cmd: 'azure/app/acr',            desc: 'Azure Container Registry instances' },
@@ -1249,6 +1252,7 @@ const SECTIONS = [
     { cmd: 'azure/security/recommendations', desc: 'Defender for Cloud recommendations' },
     { cmd: 'azure/security/defender-status', desc: 'Defender plan status per subscription' },
     { cmd: 'azure/security/key-vaults',      desc: 'Key Vault instances' },
+    { cmd: 'azure/security/locks',           desc: 'Resource locks across subscriptions' },
   ]},
   // ── GCP ───────────────────────────────────────────────────────────────────
   { id: 'gcp-core', title: 'GCP — Core', group: 'GCP', env: ['bash', 'gcloud'], commands: [
@@ -1271,16 +1275,19 @@ const SECTIONS = [
     { cmd: 'gcp/network/load-balancers', desc: 'Forwarding rules (load balancers)' },
     { cmd: 'gcp/network/cloud-dns',      desc: 'Cloud DNS zones' },
     { cmd: 'gcp/network/vpn-tunnels',    desc: 'VPN tunnels' },
+    { cmd: 'gcp/network/peerings',       desc: 'VPC peering connections' },
     { cmd: 'gcp/network/routes',         desc: 'Custom routes' },
   ]},
   { id: 'gcp-run', title: 'Cloud Run', group: 'GCP', env: ['bash', 'gcloud'], commands: [
     { cmd: 'gcp/run/services',  desc: 'Cloud Run services' },
     { cmd: 'gcp/run/revisions', desc: 'Recent revisions per service' },
     { cmd: 'gcp/run/jobs',      desc: 'Cloud Run jobs' },
+    { cmd: 'gcp/run/domains',   desc: 'Domain mappings' },
     { cmd: 'gcp/run/regions',   desc: 'Regions with Cloud Run services' },
   ]},
   { id: 'gcp-functions', title: 'Functions', group: 'GCP', env: ['bash', 'gcloud'], commands: [
     { cmd: 'gcp/functions/list',     desc: 'Cloud Functions with runtime' },
+    { cmd: 'gcp/functions/logs',     desc: 'Recent function execution logs' },
     { cmd: 'gcp/functions/runtimes', desc: 'Available runtimes' },
     { cmd: 'gcp/functions/triggers', desc: 'Functions with HTTP triggers' },
   ]},
@@ -1291,6 +1298,9 @@ const SECTIONS = [
   ]},
   { id: 'gcp-monitor', title: 'Monitoring', group: 'GCP', env: ['bash', 'gcloud'], commands: [
     { cmd: 'gcp/monitor/alert-policies',        desc: 'Alerting policies' },
+    { cmd: 'gcp/monitor/alerts',                desc: 'Active alerting policies with state' },
+    { cmd: 'gcp/monitor/incidents',             desc: 'Active incidents' },
+    { cmd: 'gcp/monitor/metrics',               desc: 'Custom log-based metrics' },
     { cmd: 'gcp/monitor/uptime-checks',         desc: 'Uptime check configs' },
     { cmd: 'gcp/monitor/dashboards',            desc: 'Custom dashboards' },
     { cmd: 'gcp/monitor/notification-channels', desc: 'Notification channels' },
