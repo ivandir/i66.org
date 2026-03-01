@@ -1,0 +1,5 @@
+az network vnet list --query '[*].{vnet:name,rg:resourceGroup}' -o json | \
+  python3 -c "import json,sys,subprocess; \
+  vnets=json.load(sys.stdin); \
+  [print(s['name'],s['addressPrefix'],v['vnet']) for v in vnets for s in json.loads(subprocess.check_output(['az','network','vnet','subnet','list','--vnet-name',v['vnet'],'--resource-group',v['rg'],'-o','json']))]" 2>/dev/null || \
+  az network vnet list --output table --query '[*].[name,subnets[].addressPrefix,resourceGroup]'

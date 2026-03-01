@@ -1,0 +1,1 @@
+gcloud compute forwarding-rules list --format='table(name,region,IPAddress,IPProtocol,portRange,target)'

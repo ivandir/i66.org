@@ -1,0 +1,1 @@
+az webapp list --output table --query '[*].[name,location,kind,state,hostNames[0],resourceGroup]'

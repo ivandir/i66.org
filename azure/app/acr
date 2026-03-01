@@ -1,0 +1,1 @@
+az acr list --output table --query '[*].[name,location,sku.name,loginServer,adminUserEnabled,resourceGroup]'

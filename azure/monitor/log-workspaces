@@ -1,0 +1,1 @@
+az monitor log-analytics workspace list --output table --query '[*].[name,location,sku.name,retentionInDays,resourceGroup]'

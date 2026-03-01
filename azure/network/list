@@ -1,0 +1,1 @@
+az network vnet list --output table --query '[*].[name,location,addressSpace.addressPrefixes[0],provisioningState,resourceGroup]'

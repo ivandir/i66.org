@@ -1,0 +1,1 @@
+gcloud compute firewall-rules list --format='table(name,network,direction,priority,sourceRanges[].list():label=SRC_RANGES,allowed[].map().firewall_rule().list():label=ALLOW)' | head -50

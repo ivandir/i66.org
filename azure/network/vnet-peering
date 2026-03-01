@@ -1,0 +1,5 @@
+az network vnet list --query '[*].{vnet:name,rg:resourceGroup}' -o json | \
+  python3 -c "import json,sys,subprocess; \
+  vnets=json.load(sys.stdin); \
+  [print(p['name'],v['vnet'],p['peeringState']) for v in vnets for p in json.loads(subprocess.check_output(['az','network','vnet','peering','list','--vnet-name',v['vnet'],'--resource-group',v['rg'],'-o','json']))]" 2>/dev/null || \
+  echo "No VNet peerings found or insufficient permissions"

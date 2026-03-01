@@ -1,0 +1,1 @@
+az network route-table list --output table --query '[*].[name,location,provisioningState,resourceGroup]'

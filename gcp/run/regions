@@ -1,0 +1,2 @@
+gcloud run regions list --format='table(locationId,displayName)' 2>/dev/null || \
+  echo "Common regions: us-central1 us-east1 us-west1 europe-west1 europe-west4 asia-east1 asia-northeast1"

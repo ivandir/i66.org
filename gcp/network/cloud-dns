@@ -1,0 +1,1 @@
+gcloud dns managed-zones list --format='table(name,dnsName,visibility,description)'

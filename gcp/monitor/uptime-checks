@@ -1,0 +1,2 @@
+gcloud alpha monitoring uptime list --format='table(displayName,resource.type,httpCheck.path,period,timeout)' 2>/dev/null || \
+  echo "No uptime check configurations found"

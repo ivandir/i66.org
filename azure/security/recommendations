@@ -1,0 +1,1 @@
+az security assessment list --output table --query '[*].[displayName,status.code,status.cause,resourceDetails.id]' 2>/dev/null | head -40 || echo "Requires Microsoft Defender for Cloud (Standard tier)"

@@ -1,0 +1,1 @@
+gcloud monitoring dashboards list --format='table(displayName,name)' 2>/dev/null || echo "No custom dashboards found"

@@ -1,0 +1,2 @@
+gcloud functions runtimes list --format='table(name,stage,deprecationDate)' 2>/dev/null || \
+  echo "Available runtimes: nodejs20 nodejs18 python312 python311 go122 go121 java21 java17 ruby33 php83 dotnet8"

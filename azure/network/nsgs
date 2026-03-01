@@ -1,0 +1,1 @@
+az network nsg list --output table --query '[*].[name,location,provisioningState,resourceGroup]'
