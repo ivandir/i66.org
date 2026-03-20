@@ -48,6 +48,11 @@ aws s3 sync . "$BUCKET" \
 
 # ── 2. Sync HTML files (text/html) ───────────────────────────────────────────
 echo "▶ Syncing HTML files (text/html)..."
+aws s3 cp llms.txt "$BUCKET/llms.txt" \
+  $DRY_RUN \
+  --content-type "text/plain; charset=utf-8" \
+  --cache-control "no-cache, no-store, must-revalidate"
+
 aws s3 cp index.html "$BUCKET/index.html" \
   $DRY_RUN \
   --content-type "text/html; charset=utf-8" \

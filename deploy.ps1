@@ -54,6 +54,7 @@ $htmlArgs = @(
 )
 if ($DryRunArg) { $htmlArgs += $DryRunArg }
 
+& aws s3 cp llms.txt "$Bucket/llms.txt" @htmlArgs
 & aws s3 cp index.html "$Bucket/index.html" @htmlArgs
 & aws s3 cp error.html "$Bucket/error.html" @htmlArgs
 

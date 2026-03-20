@@ -1,0 +1,110 @@
+# i66.org
+
+> A self-hosted library of 343 plain-text shell commands for cloud and Linux infrastructure. Each command is a single bash one-liner served over HTTP and executed locally via the i66 CLI or curl.
+
+## What it is
+
+i66.org is an open-source command server. Every path on the site (e.g. `http://i66.org/aws/ec2/list`) returns a plain bash command as `text/plain`. You fetch and run it — no installation required beyond the i66 CLI or curl.
+
+Commands use environment variables for targets: `DOMAIN=`, `HOST=`, `IP=`, `URL=`, `RELEASE=`, `DB=`, `PORT=`, `ZONE_ID=`, `DIST_ID=`, `REPO=`, `RESOURCE_ID=`, `QUEUE_URL=`, `PATCH_GROUP=`, `INSTANCE=`, `TABLE=`.
+
+## Usage
+
+```bash
+# Install the CLI
+go build -o i66 i66.org.go && ./i66 <command>
+
+# Or use curl directly (no install)
+bash <(curl -s http://i66.org/sys/disk)
+curl -s http://i66.org/aws/ec2/list | bash
+
+# With environment variable targets
+DOMAIN=example.com i66 net/dig/a
+HOST=8.8.8.8       i66 net/ping
+DB=myapp           i66 db/pg/tables
+RELEASE=myapp      i66 helm/values
+```
+
+Commands require Linux or a Linux-compatible shell (bash, systemctl, ss, ip, etc.). On Windows use WSL2.
+
+## Command categories
+
+### AWS (90 commands)
+Subpaths: `aws/ec2/`, `aws/vpc/`, `aws/eks/`, `aws/s3/`, `aws/iam/`, `aws/rds/`, `aws/lambda/`, `aws/ecs/`, `aws/cfn/`, `aws/sqs/`, `aws/sns/`, `aws/ecr/`, `aws/ssm/`, `aws/secrets/`, `aws/dynamo/`, `aws/cloudfront/`, `aws/apigw/`, `aws/r53/`, `aws/cost/`, `aws/cw/`
+
+Examples:
+- `aws/ec2/list` — All instances with ID, name, type, state, IPs
+- `aws/vpc/subnets` — All subnets across VPCs
+- `aws/eks/clusters` — EKS clusters and Kubernetes versions
+- `aws/iam/password-policy` — Account password policy
+- `aws/sqs/depth` — Messages visible per queue (QUEUE_URL=)
+- `aws/ecr/scan-findings` — Critical/High CVEs (REPO=)
+- `aws/dynamo/indexes` — Global Secondary Indexes per table
+- `aws/cloudfront/invalidations` — Recent invalidations (DIST_ID=)
+- `aws/ssm/patch-compliance` — Instance patch compliance (PATCH_GROUP=)
+
+### Azure (36 commands)
+Subpaths: `azure/vm/`, `azure/rg/`, `azure/aks/`, `azure/storage/`, `azure/network/`, `azure/db/`, `azure/monitor/`, `azure/app/`, `azure/security/`, `azure/cost/`
+
+Examples:
+- `azure/network/nsgs` — Network Security Groups
+- `azure/db/cosmos` — Cosmos DB accounts
+- `azure/monitor/action-groups` — Action groups
+- `azure/security/recommendations` — Defender for Cloud recommendations
+- `azure/app/acr` — Azure Container Registry instances
+
+### GCP (38 commands)
+Subpaths: `gcp/vm/`, `gcp/sql/`, `gcp/gke/`, `gcp/iam/`, `gcp/network/`, `gcp/run/`, `gcp/functions/`, `gcp/pubsub/`, `gcp/monitor/`
+
+Examples:
+- `gcp/network/firewall-rules` — Firewall rules
+- `gcp/run/domains` — Domain mappings
+- `gcp/monitor/incidents` — Active incidents
+- `gcp/functions/logs` — Recent function execution logs
+- `gcp/iam/service-accounts` — Service accounts in the project
+
+### System — 30 commands (`sys/`)
+Disk, memory, CPU, processes, ports, security posture, storage, I/O, logs, audit.
+
+Examples: `sys/disk`, `sys/top10cpu`, `sys/suid`, `sys/world-writable`, `sys/iostat`, `sys/auth-log`, `sys/reboots`
+
+### Docker — 12 commands (`docker/`)
+Examples: `docker/ps`, `docker/stats`, `docker/dangling-images`, `docker/build-cache`, `docker/compose-ps`
+
+### Kubernetes — 21 commands (`k8s/`)
+Examples: `k8s/pods-failed`, `k8s/hpa`, `k8s/network-policies`, `k8s/crds`, `k8s/quotas`
+
+### Network / DNS — 24 commands (`net/`, `ssl/`)
+DNS lookups (A, AAAA, MX, NS, TXT, CNAME, PTR, SOA, CAA, SRV), HTTP inspection, port checks, TLS versions, certificate chain, ciphers, HSTS, SANs, CT logs.
+
+Examples: `net/dig/aaaa`, `net/port-check`, `net/redirects`, `ssl/ciphers`, `ssl/ct`
+
+### Git — 15 commands (`git/`)
+Examples: `git/log`, `git/ahead-behind`, `git/large-files`, `git/contributors`, `git/unmerged`
+
+### Helm — 12 commands (`helm/`)
+Examples: `helm/releases`, `helm/outdated`, `helm/history` (RELEASE=), `helm/manifests` (RELEASE=)
+
+### Terraform — 10 commands (`terraform/`)
+Examples: `terraform/state`, `terraform/drift`, `terraform/output`, `terraform/providers`
+
+### Databases — 20 commands (`db/pg/`, `db/mysql/`)
+PostgreSQL: connections, slow queries, locks, bloat, replication, vacuum status.
+MySQL: processlist, InnoDB locks, replication lag, variables.
+
+Examples: `db/pg/slow-queries`, `db/pg/bloat`, `db/mysql/locks` (DB=)
+
+### Redis — 10 commands (`redis/`)
+Examples: `redis/memory`, `redis/slowlog`, `redis/keyspace`, `redis/latency`
+
+### nginx — 8 commands (`nginx/`)
+Examples: `nginx/status`, `nginx/access-top`, `nginx/status-codes`, `nginx/bandwidth`
+
+### HashiCorp Vault — 10 commands (`vault/`)
+Examples: `vault/status`, `vault/secrets`, `vault/leases`, `vault/namespaces`
+
+## Source
+
+- GitHub: https://github.com/ivandir/i66.org
+- Releases (pre-built binaries): https://github.com/ivandir/i66.org/releases
+- License: MIT
